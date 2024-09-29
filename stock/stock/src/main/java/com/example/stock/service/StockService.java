@@ -12,7 +12,16 @@ public class StockService {
         this.stockRepository = stockRepository;
     }
 
-    public void decrease(Long id, Integer quantity) {
+/*    public void decrease(Long id, Integer quantity) {
+        // 조회
+        Stock stock = stockRepository.findById(id).orElseThrow();
+        // 감소
+        stock.decrease(quantity);
+        // 저장
+        stockRepository.saveAndFlush(stock);
+    }*/
+
+    public synchronized void decrease(Long id, Integer quantity) {
         // 조회
         Stock stock = stockRepository.findById(id).orElseThrow();
         // 감소
