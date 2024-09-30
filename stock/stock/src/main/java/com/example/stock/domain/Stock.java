@@ -1,16 +1,18 @@
 package com.example.stock.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Stock {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
+
     private Long productId;
+
     private Integer quantity;
+
+    @Version
+    private Long version;
 
     // 생성 단축키 = Alt + Insert
     public Stock() {
