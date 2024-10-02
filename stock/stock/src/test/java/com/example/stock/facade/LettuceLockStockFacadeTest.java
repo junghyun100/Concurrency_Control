@@ -1,7 +1,6 @@
-package com.example.stock.service;
+package com.example.stock.facade;
 
 import com.example.stock.domain.Stock;
-import com.example.stock.facade.OptimisticLockStockFacade;
 import com.example.stock.repository.StockRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,9 +15,9 @@ import java.util.concurrent.Executors;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class OptimisticLockStockServiceTest {
+class LettuceLockStockFacadeTest {
     @Autowired
-    private OptimisticLockStockFacade optimisticLockStockFacade;
+    private LettuceLockStockFacade lettuceLockStockFacade;
     @Autowired
     private StockRepository stockRepository;
 
@@ -40,7 +39,7 @@ class OptimisticLockStockServiceTest {
         for(int index = 0; index < threadCount; index++) {
             executorService.submit(() -> {
                 try{
-                    optimisticLockStockFacade.decrease(1L, 1);
+                    lettuceLockStockFacade.decrease(1L, 1);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 } finally {

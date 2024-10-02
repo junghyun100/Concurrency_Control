@@ -1,13 +1,13 @@
-package com.example.stock.farsad;
+package com.example.stock.facade;
 
 import com.example.stock.service.OptimisticLockStockService;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OptimisticLockStockFarsad {
+public class OptimisticLockStockFacade {
     private final OptimisticLockStockService optimisticLockStockService;
 
-    public OptimisticLockStockFarsad(OptimisticLockStockService optimisticLockStockService) {
+    public OptimisticLockStockFacade(OptimisticLockStockService optimisticLockStockService) {
         this.optimisticLockStockService = optimisticLockStockService;
     }
 
